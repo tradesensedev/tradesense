@@ -1,7 +1,7 @@
-# TradeSense — Global AI-Powered Trading Intelligence Platform
+# TradeSense - Make Sense of The Market
 
-> **CTO-Level System Architecture Document**
-> Built for 10M+ users. Structured for rapid development, infinite scalability, and maximum growth.
+**AI-Powered Financial Intelligence for the Modern Retail Trader**
+Built for 10M+ users. Structured for rapid development, infinite scalability, and maximum growth.
 
 ---
 
