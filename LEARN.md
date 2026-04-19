@@ -1,937 +1,482 @@
-# TradeSense Mastery: Full-Stack Skill Roadmap
+# 🚀 TradeSense - সম্পূর্ণ Skills List (AI-First Approach)
+**বেসিক থেকে Advanced পর্যন্ত - AI সাহায্যে Fast-Track**
 
 ---
-
-## 📌 কিভাবে এই document ব্যবহার করবেন?
-
-1. **Top থেকে bottom এ follow করুন** - sequence important
-2. প্রতিটি language এর জন্য **prerequisites check করুন**
-3. **Learning time estimate** দেখে plan করুন
-4. প্রতিটি section এ উল্লেখ করা আছে TradeSense এ কোথায় লাগবে
-
----
-
-# 🌍 SECTION 1: Operating System & Machine Setup
 
 ## 1.1 Linux/Unix Basics (All OS এ জানা জরুরি)
-
-### কী শিখবেন?
-- Terminal/Command line navigation
-- File system (`ls`, `cd`, `mkdir`, `rm`)
-- User permissions (`chmod`, `sudo`)
-- Environment variables setting
-- Basic shell commands
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সবকিছু terminal থেকে run করতে হবে
-- Docker commands, Git commands, Node commands সব terminal এ
-
-### মিস করলে?
-- Commands কমান্ড করতে পারবেন না
-- Development সেটআপ fail হবে
-
 ### কতদিন লাগবে?
-- **১ দিন** — Terminal commands এর concept বুঝলেই হবে। AI ও developer বাকিটা সামলাবে।
-
-### শিখবেন কোথায়?
-```
-- Linux Academy (free tier)
-- Ubuntu tutorials (official)
-- YouTube tutorials
-```
+- **3-4 দিন** (Basic commands পর্যন্ত)
 
 ### Checklist
-- [ ] Terminal খুলতে পারি
-- [ ] Directory navigate করতে পারি
-- [ ] Files create/delete করতে পারি
-- [ ] Environment variables set করতে পারি
+- [ ] pwd, ls, cd, mkdir, rm, cp, mv কমান্ড জানি
+- [ ] File permissions (chmod) বুঝি
+- [ ] grep, find, cat, tail ব্যবহার করতে পারি
+- [ ] PATH environment variable বুঝি
+- [ ] Terminal সাধারণ কাজে comfort আছে
 
 ---
 
 ## 1.2 Git/GitHub (Version Control)
-
-### কী শিখবেন?
-- Git repository initialize
-- Add, commit, push, pull
-- Branches create and merge
-- Pull requests
-- Conflict resolution
-- Git history viewing
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সবকিছু GitHub এ থাকবে
-- Code sharing, team collaboration, deployment
-
-### মিস করলে?
-- Code version track করতে পারবেন না
-- Production এ deploy করা যাবে না
-
 ### কতদিন লাগবে?
-- **১ দিন** — add, commit, push, pull, PR — এই basic flow জানলেই হবে।
-
-### শিখবেন কোথায়?
-```
-- GitHub's official tutorial
-- Atlassian Git tutorials (FREE)
-- freeCodeCamp YouTube
-```
+- **2-3 দিন** (প্রয়োজনীয় কমান্ড পর্যন্ত)
 
 ### Checklist
-- [ ] Git install করেছি
-- [ ] GitHub account create করেছি
-- [ ] Repository create করেছি
-- [ ] Add/commit/push করতে পারি
-- [ ] Branches create করতে পারি
-- [ ] Pull requests merge করতে পারি
+- [ ] git init, clone, add, commit, push করতে পারি
+- [ ] branch create করে switch করতে পারি
+- [ ] merge conflict handle করতে পারি
+- [ ] .gitignore file বুঝি
+- [ ] GitHub repo create ও manage করতে পারি
 
 ---
 
-# 🎯 SECTION 2: Frontend Development Languages
-
 ## 2.1 HTML (HyperText Markup Language)
-
-### কী শিখবেন?
-- HTML5 structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
-- Semantic tags (`<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`)
-- Forms (`<form>`, `<input>`, `<textarea>`, `<button>`)
-- Accessibility (`alt` text, `aria-labels`, semantic HTML)
-- Meta tags (SEO এর জন্য)
-- Document structure best practices
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব web pages HTML দিয়ে তৈরি
-- Landing page, dashboard, admin panel
-
-### মিস করলে?
-- Web page তৈরি করা যাবে না
-- SEO ranking নেই
-
 ### কতদিন লাগবে?
-- **১ দিন** — Tags ও structure সহজ। Semantic HTML বুঝলেই যথেষ্ট।
-
-### শিখবেন কোথায??
-```
-- MDN Web Docs (BEST)
-- freeCodeCamp HTML course
-- W3Schools
-```
+- **2-3 দিন** (Semantic HTML পর্যন্ত)
 
 ### Checklist
-- [ ] HTML structure বুঝি
-- [ ] Forms create করতে পারি
-- [ ] Semantic tags use করতে পারি
-- [ ] Meta tags add করতে পারি
-- [ ] Accessibility improve করতে পারি
+- [ ] Basic tags (div, span, p, h1-h6, a, img) জানি
+- [ ] Form elements (input, button, select, textarea) বুঝি
+- [ ] Semantic HTML5 tags (header, nav, section, article) পরিচিত
+- [ ] Accessibility basics জানি (alt text, ARIA)
+- [ ] HTML structure ও DOM concept বুঝি
 
 ---
 
 ## 2.2 CSS (Cascading Style Sheets)
-
-### কী শিখবেন?
-- CSS Selectors (class, id, element, attribute)
-- Box model (margin, padding, border)
-- Display properties (flex, grid, block, inline)
-- Positioning (static, relative, absolute, fixed)
-- Media queries (responsive design)
-- Animations & transitions
-- CSS variables
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব styling CSS দিয়ে করা হয়
-- কিন্তু আমরা Tailwind CSS use করব (CSS framework)
-
-### মিস করলে?
-- Site ugly দেখাবে
-- Mobile responsive নয়
-- User experience খারাপ
-
 ### কতদিন লাগবে?
-- **২-৩ দিন** — HTML এর চেয়ে অনেক বেশি complex। Flexbox, Grid, positioning, media queries — এগুলো বুঝতে সময় নেয়।
-
-### শিখবেন কোথায়?
-```
-- MDN Web Docs
-- CSS-Tricks
-- freeCodeCamp CSS course
-```
+- **3-4 দিন** (Layout ও Responsive পর্যন্ত)
 
 ### Checklist
-- [ ] CSS selectors বুঝি
-- [ ] Box model বুঝি
-- [ ] Flexbox use করতে পারি
-- [ ] Grid use করতে পারি
-- [ ] Media queries লিখতে পারি
-- [ ] Animations create করতে পারি
+- [ ] Selectors (class, id, element, pseudo) জানি
+- [ ] Box Model (margin, padding, border) বুঝি
+- [ ] Flexbox basics জানি
+- [ ] CSS Grid fundamentals বুঝি
+- [ ] Media queries দিয়ে responsive design করতে পারি
 
 ---
 
 ## 2.3 Tailwind CSS (CSS Framework)
-
-### কী শিখবেন?
-- Utility-first CSS approach
-- Common classes (`flex`, `grid`, `text-lg`, `p-4`, `bg-blue-500`)
-- Responsive prefixes (`md:`, `lg:`, `dark:`)
-- Customization (tailwind.config.js)
-- Component creation with Tailwind
-- Dark mode implementation
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব UI styling Tailwind দিয়ে করা হয়
-- Next.js + Tailwind combo
-
-### মিস করলে?
-- CSS manually লিখতে হবে (ধীর, বেশি mistakes)
-- Consistency থাকবে না
-
 ### কতদিন লাগবে?
-- **১-২ দিন** — CSS জানলে Tailwind দ্রুত শেখা যায়। Utility class patterns বুঝলেই চলবে।
-
-### শিখবেন কোথায়?
-```
-- Tailwind official documentation (BEST)
-- Tailwind UI examples
-- YouTube tutorials
-```
+- **2-3 দিন** (Production level পর্যন্ত)
 
 ### Checklist
-- [ ] Tailwind install করেছি
-- [ ] Common classes মনে আছে
-- [ ] Responsive design করতে পারি
-- [ ] Custom colors configure করতে পারি
-- [ ] Dark mode implement করতে পারি
+- [ ] Tailwind class naming convention জানি
+- [ ] Layout (flex, grid, positioning) classes ব্যবহার করতে পারি
+- [ ] Responsive prefixes (sm:, md:, lg:, xl:) জানি
+- [ ] Custom config করতে পারি
+- [ ] Component library (UI patterns) তৈরি করতে পারি
 
 ---
 
 ## 2.4 JavaScript (প্রথম Programming Language)
-
-### কী শিখবেন?
-- Variables (`let`, `const`, `var`)
-- Data types (string, number, boolean, object, array)
-- Operators (arithmetic, comparison, logical)
-- Control flow (if/else, loops, switch)
-- Functions (declaration, arrow functions)
-- Objects & arrays manipulation
-- Events handling
-- DOM manipulation
-- Promises & async/await
-- Fetch API
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব interactive features JavaScript দিয়ে
-- Frontend logic, API calls, user interactions
-
-### মিস করলে?
-- ওয়েব page interactive না হয়
-- API থেকে data fetch করতে পারবেন না
-
 ### কতদিন লাগবে?
-- **৪-৫ দিন** — সব frontend ও backend এর ভিত্তি। Async/await, closures, array methods — deep understanding দরকার।
-
-### শিখবেন কোথায়?
-```
-- MDN Web Docs (BEST)
-- freeCodeCamp JavaScript course (4 hours)
-- Eloquent JavaScript book (free online)
-```
+- **8-10 দিন** (এটি গুরুত্বপূর্ণ - বেশি সময় দিন)
 
 ### Checklist
-- [ ] Variables declare করতে পারি
-- [ ] Functions write করতে পারি
-- [ ] Arrays manipulate করতে পারি
-- [ ] Objects use করতে পারি
-- [ ] Events handle করতে পারি
-- [ ] DOM manipulate করতে পারি
-- [ ] Fetch API use করতে পারি
-- [ ] Async/await বুঝি
+- [ ] Variables (let, const, var) ও Data Types বুঝি
+- [ ] Functions, Arrow Functions জানি
+- [ ] Loops (for, while, forEach) ব্যবহার করতে পারি
+- [ ] Objects, Arrays ও methods জানি
+- [ ] DOM manipulation করতে পারি
+- [ ] Async/Await, Promise বুঝি
+- [ ] ES6+ features (destructuring, spread, template literals) জানি
+- [ ] JSON parse/stringify করতে পারি
 
 ---
 
 ## 2.5 TypeScript (JavaScript এর উপর built)
-
-### কী শিখবেন?
-- Static type checking
-- Interfaces & types
-- Classes
-- Generics
-- Enums
-- Decorators
-- Module system
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব code TypeScript এ লেখা হয়
-- Type safety ensure করা জরুরি
-
-### মিস করলে?
-- Bugs catch না হওয়ার সম্ভাবনা বেশি
-- Runtime errors বেশি হবে
-
 ### কতদিন লাগবে?
-- **২-৩ দিন** — JavaScript জানলে TypeScript অনেক সহজ। Types, interfaces, generics বুঝলেই হবে।
-
-### শিখবেন কোথায়?
-```
-- TypeScript official handbook
-- freeCodeCamp TypeScript course
-```
+- **3-4 দিন** (Practical level পর্যন্ত)
 
 ### Checklist
-- [ ] Basic types বুঝি
-- [ ] Interfaces create করতে পারি
-- [ ] Functions type করতে পারি
-- [ ] Generics বুঝি
-- [ ] Classes write করতে পারি
-- [ ] TypeScript error fix করতে পারি
+- [ ] Types declaration ও annotation জানি
+- [ ] Interfaces ও Types লেখতে পারি
+- [ ] Generics basic concept বুঝি
+- [ ] Union, Intersection Types জানি
+- [ ] tsconfig.json configure করতে পারি
 
 ---
 
 ## 2.6 React (UI Library)
-
-### কী শিখবেন?
-- Components (functional components)
-- JSX syntax
-- Props (passing data)
-- State (useState hook)
-- Effects (useEffect hook)
-- Event handling
-- Conditional rendering
-- Lists & keys
-- Forms handling
-- Custom hooks
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব frontend React দিয়ে তৈরি
-- Components reuse করা easy হয়
-
-### মিস করলে?
-- UI complex হলে code maintenance impossible
-- Performance issues
-
 ### কতদিন লাগবে?
-- **৫-৭ দিন** — TradeSense এর core framework। JavaScript এর চেয়েও বেশি complex paradigm। Developer এর code review করতে ভালোভাবে বুঝতে হবে।
-
-### শিখবেন কোথায়?
-```
-- React official documentation
-- freeCodeCamp React course (11 hours)
-- Scrimba React course
-```
+- **5-6 দিন** (Intermediate level পর্যন্ত)
 
 ### Checklist
-- [ ] Functional components create করতে পারি
+- [ ] Components (Functional) তৈরি করতে পারি
 - [ ] JSX syntax বুঝি
-- [ ] Props pass করতে পারি
-- [ ] useState use করতে পারি
-- [ ] useEffect use করতে পারি
+- [ ] Props পাঠাতে ও গ্রহণ করতে পারি
+- [ ] useState Hook ব্যবহার করি
+- [ ] useEffect Hook ব্যবহার করি
+- [ ] Conditional rendering জানি
 - [ ] Lists render করতে পারি
-- [ ] Forms handle করতে পারি
-- [ ] Custom hooks create করতে পারি
+- [ ] Custom Hooks তৈরি করতে পারি
 
 ---
 
 ## 2.7 Next.js (React Framework)
-
-### কী শিখবেন?
-- File-based routing
-- API routes
-- Server-side rendering (SSR)
-- Static generation (SSG)
-- Image optimization
-- Dynamic routes
-- Middleware
-- Deployment
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সম্পূর্ণ frontend Next.js দিয়ে
-- Backend API routes ও Next.js দিয়ে
-
-### মিস করলে?
-- Routing manually configure করতে হবে (complex)
-- Performance optimization কঠিন হবে
-
 ### কতদিন লাগবে?
-- **৩-৪ দিন** — React জানলে Next.js অনেক সহজ। App Router, SSR/SSG, API routes — advanced concepts বুঝতে হবে।
-
-### শিখবেন কোথায়?
-```
-- Next.js official documentation (BEST)
-- freeCodeCamp Next.js course
-```
-
-
+- **3-4 দিন** (Fundamental features পর্যন্ত)
 
 ### Checklist
-- [ ] Next.js project create করতে পারি
-- [ ] Pages create করতে পারি
-- [ ] API routes write করতে পারি
-- [ ] Dynamic routes use করতে পারি
-- [ ] Images optimize করতে পারি
+- [ ] App Router understand করি
+- [ ] File-based routing সিস্টেম জানি
+- [ ] Server Components vs Client Components পার্থক্য বুঝি
+- [ ] API Routes তৈরি করতে পারি
+- [ ] Database সাথে connect করতে পারি
+- [ ] Deployment (Vercel) করতে পারি
 
 ---
 
-# 💾 SECTION 3: Backend Development Languages
-
 ## 3.1 Node.js (JavaScript Runtime)
-
-### কী শিখবেন?
-- npm/pnpm package management
-- Node modules & require/import
-- File system (fs module)
-- HTTP server basics
-- Environment variables
-- Asynchronous programming
-- Error handling
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব backend Node.js দিয়ে
-- Frontend local development ও Node.js দিয়ে
-
-### মিস করলে?
-- Code run হবে না
-- Package management হবে না
-
 ### কতদিন লাগবে?
-- **১-২ দিন** — JavaScript জানলে Node.js দ্রুত বোঝা যায়। Runtime ও module system এর concept বুঝলেই হবে।
-
-### শিখবেন কোথায়?
-```
-- Node.js official docs
-- freeCodeCamp Node.js course
-```
+- **2-3 দিন** (Basics পর্যন্ত)
 
 ### Checklist
-- [ ] Node.js install করেছি
-- [ ] NPM/pnpm commands জানি
-- [ ] Basic modules বুঝি
-- [ ] Async/await বুঝি
-- [ ] Environment variables use করতে পারি
+- [ ] Node.js install ও version check করতে পারি
+- [ ] npm/pnpm commands জানি (install, start, dev)
+- [ ] package.json structure বুঝি
+- [ ] Node modules concept বুঝি
+- [ ] Basic Node script run করতে পারি
 
 ---
 
 ## 3.2 Express.js (Web Framework)
-
-### কী শিখবেন?
-- Express app setup
-- Routes (GET, POST, PUT, DELETE)
-- Middleware
-- Request/response handling
-- Error handling
-- Routing parameters
-- Query parameters
-- Request body parsing
-
-### TradeSense এ ব্যবহার?
-- **90% জরুরি** - Backend API Express.js দিয়ে
-- (কিন্তু আমরা Hono use করতে পারি - lighter)
-
-### মিস করলে?
-- API endpoints তৈরি করা কঠিন
-- Request handling manual করতে হবে
-
 ### কতদিন লাগবে?
-- **২-৩ দিন** — Node.js এর চেয়ে বেশি concept। Routes, middleware, error handling — REST API design বুঝতে হবে।
-
-### শিখবেন কোথায়?
-```
-- Express official guide
-- freeCodeCamp Express tutorial
-```
+- **3-4 দিন** (Practical APIs পর্যন্ত)
 
 ### Checklist
-- [ ] Express app create করতে পারি
-- [ ] Routes define করতে পারি
-- [ ] POST/PUT/DELETE handle করতে পারি
-- [ ] Middleware use করতে পারি
-- [ ] Error handling implement করতে পারি
+- [ ] Express server setup করতে পারি
+- [ ] Routes (GET, POST, PUT, DELETE) তৈরি করি
+- [ ] Middleware লিখতে ও ব্যবহার করি
+- [ ] Request/Response handling বুঝি
+- [ ] Error handling setup করি
+- [ ] CORS configure করি
 
 ---
 
 ## 3.3 PostgreSQL (Database Language - SQL)
-
-### কী শিখবেন?
-- SQL syntax
-- CREATE TABLE, INSERT, UPDATE, DELETE
-- WHERE, ORDER BY, GROUP BY
-- JOIN operations
-- Aggregate functions
-- Transactions
-- Indexes
-- Foreign keys
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব data PostgreSQL database এ থাকবে
-- User info, insights, admin logs সব
-
-### মিস করলে?
-- Data properly store/retrieve হবে না
-- Queries slow হবে
-- Data corruption risk
-
 ### কতদিন লাগবে?
-- **৩-৪ দিন** — Database design decisions গুরুত্বপূর্ণ, তাই ভালোভাবে বুঝতে হবে। Schema, JOIN, index — এগুলো সময় নেয়।
-
-### শিখবেন কোথায়?
-```
-- PostgreSQL official tutorial
-- freeCodeCamp SQL course
-- SQL Zoo (interactive)
-```
-
+- **4-5 দিন** (Practical Queries পর্যন্ত)
 
 ### Checklist
-- [ ] PostgreSQL install করেছি
-- [ ] Database create করতে পারি
-- [ ] Tables create করতে পারি
-- [ ] CRUD operations (Insert, Select, Update, Delete) পারি
-- [ ] JOINs বুঝি
-- [ ] Indexes create করতে পারি
+- [ ] Database create/drop করতে পারি
+- [ ] CREATE TABLE statement লিখি
+- [ ] Basic CRUD queries জানি (SELECT, INSERT, UPDATE, DELETE)
+- [ ] WHERE, ORDER BY, JOIN বুঝি
+- [ ] Aggregate functions (COUNT, SUM, AVG) জানি
+- [ ] Indexes concept বুঝি
 
 ---
 
 ## 3.4 Prisma ORM (Database ORM)
-
-### কী শিখবেন?
-- Schema definition
-- Migrations
-- CRUD operations with Prisma
-- Relations (one-to-many, many-to-many)
-- Queries with filters
-- Transactions
-- Raw SQL queries
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব database operations Prisma দিয়ে
-- Type-safe queries, auto migrations
-
-### মিস করলে?
-- SQL manually লিখতে হবে
-- Type safety নেই
-- Query building time বেশি লাগবে
-
 ### কতদিন লাগবে?
-- **১-২ দিন** — SQL জানলে Prisma schema সহজ। Migration ও basic queries বুঝলেই হবে।
-
-### শিখবেন কোথায়?
-```
-- Prisma official documentation (BEST)
-- Prisma tutorials
-```
+- **2-3 দিন** (Production ready পর্যন্ত)
 
 ### Checklist
-- [ ] Prisma install করেছি
-- [ ] Schema define করতে পারি
+- [ ] Prisma schema file লিখতে পারি
+- [ ] Models define করি
+- [ ] Relationships (one-to-many, many-to-many) setup করি
+- [ ] Prisma Client সাথে CRUD করি
 - [ ] Migrations run করতে পারি
-- [ ] CRUD operations করতে পারি
-- [ ] Relations handle করতে পারি
-- [ ] Complex queries লিখতে পারি
+- [ ] Prisma Studio explore করি
 
 ---
 
 ## 3.5 Zod (Validation Library)
-
-### কী শিখবেন?
-- Schema definition
-- Validation
-- Error handling
-- Custom validations
-- Transformations
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব API input validation Zod দিয়ে
-- Type-safe validation
-
-### মিস করলে?
-- Invalid data database এ save হবে
-- Security vulnerabilities
-
 ### কতদিন লাগবে?
-- **আধা দিন** — Validation schema এর pattern বোঝাই যথেষ্ট। খুব simple concept।
-
-### শিখবেন কোথায়?
-```
-- Zod official documentation
-```
+- **1-2 দিন** (দ্রুত শিখতে পারবেন)
 
 ### Checklist
-- [ ] Zod install করেছি
-- [ ] Schemas define করতে পারি
-- [ ] Validation করতে পারি
-- [ ] Error handling করতে পারি
+- [ ] Basic schema define করি
+- [ ] String, number, boolean validation জানি
+- [ ] Objects ও Arrays validate করি
+- [ ] Custom validation rules লিখি
+- [ ] Error handling করি
 
 ---
 
-# 🌐 SECTION 4: Cloud & DevOps Languages/Tools
-
 ## 4.1 Bash/Shell Scripting
-
-### কী শিখবেন?
-- Variables & data types
-- Conditional statements
-- Loops
-- Functions
-- File operations
-- Command piping
-- Script execution
-
-### TradeSense এ ব্যবহার?
-- **75% জরুরি** - Deployment scripts, automation
-- Database backups, environment setup
-
-### মিস করলে?
-- Manual commands run করতে হবে (time-consuming)
-- Errors বেশি
-
 ### কতদিন লাগবে?
-- **১ দিন** — Basic scripting বুঝলেই হবে। Complex scripts AI লিখে দেবে।
-
-### শিখবেন কোথায়?
-```
-- GNU Bash Manual
-- ShellCheck tutorials
-```
+- **2-3 দিন** (Practical scripts পর্যন্ত)
 
 ### Checklist
-- [ ] Terminal commands জানি
-- [ ] Variables use করতে পারি
-- [ ] Conditions write করতে পারি
-- [ ] Loops লিখতে পারি
-- [ ] Scripts create করতে পারি
+- [ ] Shell script file তৈরি করতে পারি
+- [ ] Variables, loops জানি
+- [ ] Conditional statements লিখি
+- [ ] Functions define করি
+- [ ] File operations করি
 
 ---
 
 ## 4.2 Docker (Containerization)
-
-### কী শিখবেন?
-- Dockerfile syntax
-- Images & containers
-- Docker Compose
-- Volumes
-- Networks
-- Environment variables
-- Multi-stage builds
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - Local development consistency
-- Production deployment
-
-### মিস করলে?
-- "Works on my machine" syndrome
-- Deployment issues বেশি
-
 ### কতদিন লাগবে?
-- **২-৩ দিন** — Container, image, docker-compose — concept গুলো আলাদা এবং বুঝতে সময় লাগে। Production deployment এ জরুরি।
-
-### শিখবেন কোথায়?
-```
-- Docker official documentation
-- freeCodeCamp Docker course
-```
-
+- **3-4 দিন** (Development level পর্যন্ত)
 
 ### Checklist
 - [ ] Docker install করেছি
 - [ ] Dockerfile লিখতে পারি
-- [ ] Images build করতে পারি
-- [ ] Containers run করতে পারি
-- [ ] Docker Compose use করতে পারি
+- [ ] Docker image build করি
+- [ ] Container run করি
+- [ ] Docker Compose understand করি
+- [ ] docker-compose.yml file তৈরি করি
 
 ---
 
 ## 4.3 YAML (Configuration Language)
-
-### কী শিখবেন?
-- YAML syntax
-- Indentation rules
-- Data types
-- Comments
-- References
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - Docker Compose, Kubernetes, CI/CD configs
-- Configuration files
-
-### মিস করলে?
-- Configuration syntax errors
-- Deployment failures
-
 ### কতদিন লাগবে?
-- **আধা দিন** — শুধু config syntax। পড়তে ও লিখতে পারলেই যথেষ্ট।
+- **1 দিন** (খুব দ্রুত শিখে যাবেন)
 
 ### Checklist
 - [ ] YAML syntax বুঝি
-- [ ] Configuration files পড়তে পারি
-- [ ] YAML लिखতে পারি
+- [ ] Key-value pairs লিখি
+- [ ] Lists এবং nested structures জানি
+- [ ] .yml files পড়তে পারি
+- [ ] Docker Compose files edit করি
 
 ---
 
 ## 4.4 Environment Variables (.env)
+### কতদিন লাগবে?
+- **1 দিন** (অত্যন্ত সহজ)
 
-### কী শিখবেন?
-- .env file syntax
-- Variable naming conventions
-- Security best practices
-- dotenv package usage
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - সব secrets .env এ থাকবে
-- Database credentials, API keys, etc.
-
-### মিস করলে?
-- Secrets GitHub এ commit হবে
-- Security breach risk
+### Checklist
+- [ ] .env file তৈরি করি
+- [ ] Variables define করি
+- [ ] process.env দিয়ে access করি
+- [ ] .env.example file maintain করি
+- [ ] .gitignore-এ .env add করি
 
 ---
-
-## 4.5 Git Commands (Advanced)
-
-### কী শিখবেন?
-- Branching strategies
-- Rebase vs merge
-- Cherry pick
-- Stash
-- Tags
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - Team collaboration, code management
-
----
-
-# 🧪 SECTION 5: Testing Languages/Tools
 
 ## 5.1 Jest (Testing Framework)
-
-### কী শিখবেন?
-- Test writing
-- Assertions
-- Mocking
-- Async testing
-- Coverage reports
-
-### TradeSense এ ব্যবহার?
-- **80% জরুরি** - Unit tests, integration tests
-- Phase 5 production hardening এ
-
-### মিস করলে?
-- Bugs production এ যাবে
-- Regression testing কঠিন
-
 ### কতদিন লাগবে?
-- **২ দিন** — Test structure ও assertion patterns বুঝলেই হবে। AI tests লিখবে, তবে review করতে পারতে হবে।
+- **2-3 দিন** (Functional testing পর্যন্ত)
+
+### Checklist
+- [ ] Jest install ও setup করি
+- [ ] Test files লিখি
+- [ ] describe, test functions বুঝি
+- [ ] Assertions (expect) জানি
+- [ ] Mocking basics বুঝি
+- [ ] Test coverage check করি
 
 ---
 
 ## 5.2 Playwright (E2E Testing)
+### কতদিন লাগবে?
+- **2-3 দিন** (Basic automation পর্যন্ত)
 
-### কী শিখবেন?
-- Browser automation
-- User interaction simulation
-- Assertion
-- Screenshots & videos
-- Visual testing
-
-### TradeSense এ ব্যবহার?
-- **75% জরুরি** - End-to-end user flow testing
-- Login, create insight, publish workflows
+### Checklist
+- [ ] Playwright install করেছি
+- [ ] Browser launch করি
+- [ ] Element selection করি
+- [ ] User interactions simulate করি
+- [ ] Assertions লিখি
+- [ ] Test scripts run করি
 
 ---
 
-# 📚 SECTION 6: Documentation Languages
-
 ## 6.1 Markdown
+### কতদিন লাগবে?
+- **1 দিন** (খুবই সহজ)
 
-### কী শিখবেন?
-- Headers, bold, italic
-- Lists, tables
-- Code blocks
-- Links, images
-- Formatting
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - README, documentation, runbooks
-- GitHub Wiki
+### Checklist
+- [ ] Headings, paragraphs লিখি
+- [ ] Lists (ordered, unordered) বুঝি
+- [ ] Links এবং images add করি
+- [ ] Code blocks format করি
+- [ ] Tables তৈরি করি
 
 ---
 
 ## 6.2 MDX (Markdown + JSX)
+### কতদিন লাগবে?
+- **1-2 দিন** (Markdown জানলে সহজ)
 
-### কী শিখবেন?
-- Markdown syntax
-- JSX components in Markdown
-- Interactive documentation
-
-### TradeSense এ ব্যবহার?
-- **50% জরুরি** - Blog posts, documentation pages
+### Checklist
+- [ ] MDX file structure বুঝি
+- [ ] JSX components এ use করি
+- [ ] Dynamic content add করি
+- [ ] MDX files process করি
 
 ---
 
-# 🔑 SECTION 7: Essential Patterns & Concepts (Language-Agnostic)
-
 ## 7.1 RESTful API Design
+### কতদিন লাগবে?
+- **2-3 দিন** (Principles understanding)
 
-### কী শিখবেন?
-- HTTP methods (GET, POST, PUT, DELETE)
-- Status codes
-- Request/response format
-- Error handling
-- Pagination
-
-```
-GET    /api/insights           → Get all insights
-POST   /api/insights           → Create insight
-GET    /api/insights/:id       → Get single insight
-PUT    /api/insights/:id       → Update insight
-DELETE /api/insights/:id       → Delete insight
-```
+### Checklist
+- [ ] REST principles বুঝি
+- [ ] HTTP methods (GET, POST, PUT, DELETE) জানি
+- [ ] Status codes মানে (200, 404, 500 ইত্যাদি)
+- [ ] URL structure design করি
+- [ ] Request/Response format standardize করি
 
 ---
 
 ## 7.2 Authentication (JWT & OAuth)
+### কতদিন লাগবে?
+- **3-4 দিন** (Implementation level পর্যন্ত)
 
-### কী শিখবেন?
-- JWT tokens
-- OAuth 2.0
-- Session management
-- Refresh tokens
-- Security best practices
-
-### TradeSense এ ব্যবহার?
-- **100% জরুরি** - User authentication, admin auth
-- Google OAuth integration
+### Checklist
+- [ ] JWT structure ও flow বুঝি
+- [ ] Token generate করি
+- [ ] Token verify করি
+- [ ] OAuth2 basic concept বুঝি
+- [ ] Auth middleware লিখি
+- [ ] Refresh token implement করি
 
 ---
 
 ## 7.3 Database Design & Normalization
+### কতদিন লাগবে?
+- **3-4 দিন** (Practical design পর্যন্ত)
 
-### কী শিখবেন?
-- Entity relationships
-- Normalization (1NF, 2NF, 3NF)
-- Indexing strategies
-- Query optimization
+### Checklist
+- [ ] Entity Relationship Diagram (ERD) বুঝি
+- [ ] Primary Key, Foreign Key জানি
+- [ ] Normalization (1NF, 2NF, 3NF) concept বুঝি
+- [ ] Relationships design করি (1-to-1, 1-to-many, many-to-many)
+- [ ] Index strategy plan করি
 
 ---
 
 ## 7.4 Security Best Practices
+### কতদিন লাগবে?
+- **2-3 দিন** (Fundamental level পর্যন্ত)
 
-### কী শিখবেন?
-- SQL injection prevention
-- XSS protection
-- CSRF protection
-- Rate limiting
-- Input validation
-- Secrets management
+### Checklist
+- [ ] SQL Injection prevention বুঝি
+- [ ] XSS attacks থেকে protect করি
+- [ ] CSRF protection জানি
+- [ ] Password hashing (bcrypt) করি
+- [ ] Environment variables sensitive data রাখি
+- [ ] HTTPS importance বুঝি
 
 ---
 
 ## 7.5 API Documentation
+### কতদিন লাগবে?
+- **1-2 দিন** (Communication skill)
 
-### কী শিখবেন?
-- OpenAPI/Swagger
-- API documentation standards
-- Examples & use cases
-
----
-
-# 📊 COMPLETE SKILL DEPENDENCY CHART
-
-```
-START HERE
-    ↓
-1. Linux/Terminal (Days 1-3)
-    ↓
-2. Git/GitHub (Days 3-6)
-    ↓
-┌───────────────────────────────────────────┐
-│  PARALLEL: Frontend & Backend Learning    │
-└───────────────────────────────────────────┘
-    │                       │
-    ├─→ HTML (Days 6-10)    ├─→ Node.js (Days 6-10)
-    │   └─→ CSS (Days 10-17) │   └─→ Express.js (Days 10-15)
-    │   └─→ Tailwind (Days 17-20)
-    │   └─→ JavaScript (Days 20-35)
-    │   └─→ TypeScript (Days 35-42)
-    │   └─→ React (Days 42-70)
-    │   └─→ Next.js (Days 70-77)
-    │
-    └─→ PostgreSQL/SQL (Days 10-24)
-        └─→ Prisma ORM (Days 24-29)
-        └─→ Zod Validation (Days 29-31)
-
-DevOps & Tools (Parallel):
-├─→ Docker (Days 15-28)
-├─→ Bash Scripting (Days 10-14)
-├─→ YAML (Days 14-15)
-└─→ Environment Variables (Days 1-2)
-
-Testing (Week 7+):
-├─→ Jest (Days 70-77)
-└─→ Playwright (Days 77-84)
-
-Documentation:
-├─→ Markdown (Days 1+)
-└─→ MDX (Days 40+)
-```
+### Checklist
+- [ ] Swagger/OpenAPI understand করি
+- [ ] API endpoints document করি
+- [ ] Request/Response examples দিই
+- [ ] Error codes explain করি
+- [ ] README file ভালোভাবে লিখি
 
 ---
 
-# 🎯 WEEK-BY-WEEK LEARNING PLAN
+---
 
-## Week 1
-- [ ] Linux/Terminal basics
-- [ ] Git/GitHub setup & basics
-- [ ] Environment variables concept
-- [ ] Markdown basics
+## ✅ FINAL CHECKLIST - Before You Start Coding
 
-## Week 2-3
-- [ ] HTML fundamentals
-- [ ] CSS fundamentals
-- [ ] Tailwind CSS basics
+### Phase 1: Foundation (দিন ১-৭)
+- [ ] Linux/Unix basics শিখেছি (3-4 দিন)
+- [ ] Git/GitHub setup করেছি (2-3 দিন)
 
-## Week 4-5
-- [ ] JavaScript basics (variables, functions, loops)
-- [ ] Node.js basics
-- [ ] npm/pnpm package management
+### Phase 2: Frontend Fundamentals (দিন ৮-২০)
+- [ ] HTML structure বুঝি (2-3 দিন)
+- [ ] CSS styling করতে পারি (3-4 দিন)
+- [ ] Tailwind CSS সাথে কাজ করি (2-3 দিন)
+- [ ] JavaScript basics solid আছে (8-10 দিন) ⭐ গুরুত্বপূর্ণ
 
-## Week 6-7
-- [ ] JavaScript intermediate (async/await, fetch API, DOM)
-- [ ] PostgreSQL/SQL basics
-- [ ] TypeScript introduction
+### Phase 3: Backend Fundamentals (দিন ২১-৩০)
+- [ ] Node.js environment setup করেছি (2-3 দিন)
+- [ ] Express.js দিয়ে APIs তৈরি করি (3-4 দিন)
+- [ ] PostgreSQL locally run করতে পারি (4-5 দিন)
 
-## Week 8-9
-- [ ] React fundamentals
-- [ ] Express.js basics
-- [ ] Prisma ORM introduction
+### Phase 4: Advanced Frontend (দিন ৩১-৪০)
+- [ ] TypeScript configure করেছি (3-4 দিন)
+- [ ] React components তৈরি করি (5-6 দিন)
 
-## Week 10-11
-- [ ] React hooks & advanced
-- [ ] Express.js advanced
-- [ ] Docker fundamentals
+### Phase 5: Full-Stack Integration (দিন ৪১-৪৮)
+- [ ] Next.js project create করি (3-4 দিন)
+- [ ] Prisma ORM সাথে database connect করি (2-3 দিন)
 
-## Week 12-13
-- [ ] Next.js fundamentals
-- [ ] Full-stack integration
-- [ ] Zod validation
+### Phase 6: DevOps & Deployment (দিন ৪৯-৫৫)
+- [ ] Docker setup করেছি (3-4 দিন)
+- [ ] .env files manage করি (1 দিন)
+- [ ] YAML কনফিগ বুঝি (1 দিন)
 
-## Week 14+
-- [ ] Testing (Jest, Playwright)
-- [ ] Production hardening
-- [ ] Deployment preparation
+### Phase 7: Professional Development (দিন ৫৬-৬৫)
+- [ ] RESTful API Design principles জানি (2-3 দিন)
+- [ ] Authentication (JWT) implement করি (3-4 দিন)
+- [ ] Database Design করতে পারি (3-4 দিন)
+- [ ] Security Best Practices follow করি (2-3 দিন)
+- [ ] API Documentation লিখি (1-2 দিন)
+
+### Phase 8: Testing & Polish (দিন ৬৬-৭০)
+- [ ] Jest দিয়ে unit tests লিখি (2-3 দিন)
+- [ ] Playwright দিয়ে E2E tests লিখি (2-3 দিন)
+
+### Phase 9: Extra (Optional, দিন ৭১+)
+- [ ] Zod validation implement করি (1-2 দিন)
+- [ ] Bash scripting শিখি (2-3 দিন)
+- [ ] Markdown ও MDX explore করি (1-2 দিন)
 
 ---
 
-# ✅ FINAL CHECKLIST - Before You Start Coding
+## 📊 সারসংক্ষেপ
 
-- [ ] Terminal commands জানি
-- [ ] Git/GitHub flow বুঝি
-- [ ] HTML/CSS ভিত্তি আছে
-- [ ] JavaScript এর basics জানি
-- [ ] Node.js environment setup করেছি
-- [ ] PostgreSQL locally run করতে পারি
-- [ ] Docker install এবং work করতে পারি
-- [ ] Next.js project create করতে পারি
-- [ ] TypeScript configure করতে পারি
-- [ ] .env files understand করি
+| Phase | Duration | Status |
+|-------|----------|--------|
+| Foundation | ৭ দিন | শুরু করুন এখানে |
+| Frontend + Backend Basics | ২৩ দিন | |
+| Advanced Skills | ১৫ দিন | |
+| Professional + Testing | ১৫ দিন | |
+| Optional | Variable | |
+| **Total (Core)** | **~৬০ দিন** | |
 
 ---
 
-# 🚀 Ready? Let's Build TradeSense!
+## 🎯 TradeSense এর জন্য Priority Order
 
-এখন আপনি ready আছেন TradeSense develop করতে। যাও এবং প্রথম commit করো! 🎉
+### MUST LEARN (সর্বোচ্চ গুরুত্ব)
+1. **JavaScript** - প্রোগ্রামিং এর ভিত্তি
+2. **React** - UI বিল্ডিং
+3. **Next.js** - Full-stack framework
+4. **PostgreSQL** - ডেটাবেস
+5. **Prisma** - Database layer
+6. **Authentication** - নিরাপত্তা
+
+### IMPORTANT (গুরুত্বপূর্ণ)
+1. **TypeScript** - Type safety
+2. **Tailwind CSS** - স্টাইলিং
+3. **Express.js** - Backend basics
+4. **Docker** - Deployment
+5. **API Design** - Scalability
+
+### GOOD TO HAVE (ভালো থাকলে আরও ভালো)
+1. **Testing** - Quality assurance
+2. **Security** - Best practices
+3. **Bash** - Automation
+4. **Markdown** - Documentation
+
+---
+
+## 💡 AI-First Development এর সুবিধা
+
+- ✅ Advanced syntax memorize করতে হবে না
+- ✅ Libraries explore করতে পারবেন দ্রুত
+- ✅ Boilerplate কোড AI generate করবে
+- ✅ Debugging এ সাহায্য পাবেন
+- ✅ Code reviews AI দিতে পারে
+- ✅ Documentation AI লিখে দিতে পারে
+
+**কিন্তু**, এই skills শিখতে হবেই:
+- ❌ Fundamentals বুঝতে হবে (JS, React, DB Design)
+- ❌ AI কোড review করতে পারতে হবে
+- ❌ Architecture decisions নিতে হবে নিজে
+- ❌ Security implications বুঝতে হবে
+
+---
+
+## 🚀 Ready? Let's Build TradeSense!
+
+**Total Time: ~60 দিন (Intensive Learning + Daily AI Practice)**
+
+Start from Phase 1 ওপরে যান। প্রতিদিন ৪-৫ ঘন্টা পড়ুন + AI দিয়ে practice করুন।
+
+**Good luck! আপনি পারবেন!** 💪
