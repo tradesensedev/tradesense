@@ -1,5 +1,4 @@
 # TradeSense Mastery: Full-Stack Skill Roadmap
-## বেসিক থেকে Advanced পর্যন্ত সব Programming Languages
 
 ---
 
