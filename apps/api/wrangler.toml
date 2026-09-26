@@ -1,0 +1,27 @@
+name = "tradesense-api"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tradesense-db"
+database_id = "c9195a28-0819-4104-b24f-9861762a3062"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "00a519cc56854f1a8e711e1d159d0f8a"
+
+# R2 - card na thakle porer jonno rakha, card hole eta uncomment koro:
+# [[r2_buckets]]
+# binding = "ASSETS"
+# bucket_name = "tradesense-assets"
+
+[[queues.producers]]
+binding = "AI_QUEUE"
+queue = "ai-enrichment-queue"
+
+[[queues.consumers]]
+queue = "ai-enrichment-queue"
+
+[triggers]
+crons = ["0 6 * * *", "0 */4 * * *"]
