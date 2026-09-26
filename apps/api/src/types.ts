@@ -2,6 +2,7 @@ export interface Env {
   DB: D1Database;
   CACHE: KVNamespace;
   AI_QUEUE: Queue;
+  AI: Ai;
   USE_MOCK_DATA: string;
   FRED_API_KEY?: string;
   NEWSAPI_KEY?: string;

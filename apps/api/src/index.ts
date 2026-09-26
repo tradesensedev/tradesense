@@ -6,6 +6,10 @@ import { fetchNews } from "./jobs/fetch-news";
 import { fetchCalendar } from "./jobs/fetch-calendar";
 import { fetchRates } from "./jobs/fetch-rates";
 import { fetchIndicators } from "./jobs/fetch-indicators";
+import { seedPrompts } from "./jobs/seed-prompts";
+import { handleQueue } from "./jobs/ai-enrich";
+import { tagEconomicSurprise, tagCOTPositioning } from "./lib/rules";
+import { enrichContent } from "./lib/ai/client";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -65,4 +69,41 @@ app.get("/debug/fetch-indicators", async (c) => {
   }
 });
 
-export default app;
+app.get("/debug/test-rules", (c) => {
+  return c.json({
+    surprise_beat: tagEconomicSurprise("0.4%", "0.3%"),
+    surprise_miss: tagEconomicSurprise("0.1%", "0.3%"),
+    surprise_meet: tagEconomicSurprise("0.3%", "0.3%"),
+    surprise_null: tagEconomicSurprise(null, "0.3%"),
+    cot_extreme_high: tagCOTPositioning(52000, [10000, 15000, 20000, 25000, 30000, 35000, 40000]),
+    cot_normal: tagCOTPositioning(22000, [10000, 15000, 20000, 25000, 30000, 35000, 40000]),
+  });
+});
+
+app.get("/debug/seed-prompts", async (c) => {
+  try {
+    const result = await seedPrompts(c.env);
+    return c.json({ ok: true, result });
+  } catch (err: any) {
+    return c.json({ ok: false, error: err.message }, 500);
+  }
+});
+
+app.get("/debug/test-ai", async (c) => {
+  try {
+    const text = await enrichContent(c.env, "central_bank", {
+      name: "Federal Reserve",
+      currency: "USD",
+      currentRate: "4.75%",
+      stance: "hawkish",
+    });
+    return c.json({ ok: true, text });
+  } catch (err: any) {
+    return c.json({ ok: false, error: err.message }, 500);
+  }
+});
+
+export default {
+  fetch: app.fetch,
+  queue: handleQueue,
+};

@@ -2,6 +2,7 @@ import { createDb } from "../../../../packages/db/client";
 import { centralBanks } from "../../../../packages/db/schema";
 import { loadCentralBankData } from "../lib/data-source";
 import type { Env } from "../types";
+import type { EnrichmentMessage } from "./ai-enrich";
 
 export async function fetchRates(env: Env) {
   const db = createDb(env.DB);
@@ -26,7 +27,19 @@ export async function fetchRates(env: Env) {
           nextMeetingAt: row.nextMeetingAt ? new Date(row.nextMeetingAt) : null,
         },
       });
+
+    const message: EnrichmentMessage = {
+      taskType: "central_bank",
+      recordId: row.id,
+      variables: {
+        name: row.name,
+        currency: row.currency,
+        currentRate: row.currentRate,
+        stance: row.stance,
+      },
+    };
+    await env.AI_QUEUE.send(message);
   }
 
-  return { inserted: data.length };
+  return { inserted: data.length, queued: data.length };
 }
