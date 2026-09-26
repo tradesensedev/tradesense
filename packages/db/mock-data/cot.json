@@ -1,0 +1,10 @@
+[
+  { "id": "cot_001", "pair": "EURUSD", "commercialNet": -45000, "noncommercialNet": 52000, "retailNet": -12000, "weekOf": 1759996800000 },
+  { "id": "cot_002", "pair": "GBPUSD", "commercialNet": -18000, "noncommercialNet": 21000, "retailNet": -8000, "weekOf": 1759996800000 },
+  { "id": "cot_003", "pair": "USDJPY", "commercialNet": 32000, "noncommercialNet": -28000, "retailNet": 15000, "weekOf": 1759996800000 },
+  { "id": "cot_004", "pair": "AUDUSD", "commercialNet": -9000, "noncommercialNet": 11000, "retailNet": -3000, "weekOf": 1759996800000 },
+  { "id": "cot_005", "pair": "USDCAD", "commercialNet": 14000, "noncommercialNet": -12000, "retailNet": 5000, "weekOf": 1759996800000 },
+  { "id": "cot_006", "pair": "USDCHF", "commercialNet": 6000, "noncommercialNet": -7000, "retailNet": 2000, "weekOf": 1759996800000 },
+  { "id": "cot_007", "pair": "NZDUSD", "commercialNet": -5000, "noncommercialNet": 6000, "retailNet": -1500, "weekOf": 1759996800000 },
+  { "id": "cot_008", "pair": "XAUUSD", "commercialNet": -120000, "noncommercialNet": 135000, "retailNet": -25000, "weekOf": 1759996800000 }
+]

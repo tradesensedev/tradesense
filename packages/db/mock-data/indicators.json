@@ -1,0 +1,14 @@
+[
+  { "id": "ind_001", "type": "cpi", "country": "US", "value": "2.9%", "date": 1759046400000 },
+  { "id": "ind_002", "type": "gdp", "country": "US", "value": "2.1%", "date": 1758787200000 },
+  { "id": "ind_003", "type": "nfp", "country": "US", "value": "175K", "date": 1759305600000 },
+  { "id": "ind_004", "type": "unemployment", "country": "US", "value": "4.2%", "date": 1759564800000 },
+  { "id": "ind_005", "type": "pmi", "country": "US", "value": "49.0", "date": 1759910400000 },
+  { "id": "ind_006", "type": "retail_sales", "country": "US", "value": "0.2%", "date": 1760169600000 },
+  { "id": "ind_007", "type": "ppi", "country": "US", "value": "0.1%", "date": 1760428800000 },
+  { "id": "ind_008", "type": "cpi", "country": "EU", "value": "2.2%", "date": 1760256000000 },
+  { "id": "ind_009", "type": "gdp", "country": "EU", "value": "0.8%", "date": 1758787200000 },
+  { "id": "ind_010", "type": "unemployment", "country": "EU", "value": "6.3%", "date": 1759564800000 },
+  { "id": "ind_011", "type": "cpi", "country": "UK", "value": "2.4%", "date": 1759046400000 },
+  { "id": "ind_012", "type": "gdp", "country": "UK", "value": "0.1%", "date": 1759219200000 }
+]

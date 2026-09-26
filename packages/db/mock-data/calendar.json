@@ -1,0 +1,20 @@
+[
+  { "id": "cal_001", "name": "US CPI m/m", "currency": "USD", "impact": "high", "scheduledAt": 1759046400000, "forecast": "0.3%", "previous": "0.2%", "actual": "0.4%" },
+  { "id": "cal_002", "name": "ECB Interest Rate Decision", "currency": "EUR", "impact": "high", "scheduledAt": 1759132800000, "forecast": "4.25%", "previous": "4.25%", "actual": null },
+  { "id": "cal_003", "name": "UK GDP q/q", "currency": "GBP", "impact": "medium", "scheduledAt": 1759219200000, "forecast": "0.2%", "previous": "0.1%", "actual": "0.3%" },
+  { "id": "cal_004", "name": "US Non-Farm Payrolls", "currency": "USD", "impact": "high", "scheduledAt": 1759305600000, "forecast": "180K", "previous": "175K", "actual": null },
+  { "id": "cal_005", "name": "BOJ Policy Rate", "currency": "JPY", "impact": "high", "scheduledAt": 1759392000000, "forecast": "0.25%", "previous": "0.25%", "actual": null },
+  { "id": "cal_006", "name": "Australia Retail Sales m/m", "currency": "AUD", "impact": "medium", "scheduledAt": 1759478400000, "forecast": "0.4%", "previous": "0.3%", "actual": "0.5%" },
+  { "id": "cal_007", "name": "US Unemployment Rate", "currency": "USD", "impact": "high", "scheduledAt": 1759564800000, "forecast": "4.1%", "previous": "4.2%", "actual": null },
+  { "id": "cal_008", "name": "Canada CPI y/y", "currency": "CAD", "impact": "medium", "scheduledAt": 1759651200000, "forecast": "2.6%", "previous": "2.5%", "actual": "2.7%" },
+  { "id": "cal_009", "name": "Germany ZEW Economic Sentiment", "currency": "EUR", "impact": "low", "scheduledAt": 1759737600000, "forecast": "12.5", "previous": "11.0", "actual": null },
+  { "id": "cal_010", "name": "New Zealand Employment Change", "currency": "NZD", "impact": "medium", "scheduledAt": 1759824000000, "forecast": "0.3%", "previous": "0.1%", "actual": "0.4%" },
+  { "id": "cal_011", "name": "US ISM Manufacturing PMI", "currency": "USD", "impact": "medium", "scheduledAt": 1759910400000, "forecast": "49.5", "previous": "49.0", "actual": null },
+  { "id": "cal_012", "name": "Switzerland SNB Rate Decision", "currency": "CHF", "impact": "high", "scheduledAt": 1759996800000, "forecast": "1.0%", "previous": "1.0%", "actual": null },
+  { "id": "cal_013", "name": "China Manufacturing PMI", "currency": "CNY", "impact": "medium", "scheduledAt": 1760083200000, "forecast": "50.2", "previous": "49.8", "actual": "50.5" },
+  { "id": "cal_014", "name": "US Retail Sales m/m", "currency": "USD", "impact": "medium", "scheduledAt": 1760169600000, "forecast": "0.3%", "previous": "0.2%", "actual": null },
+  { "id": "cal_015", "name": "Eurozone Flash CPI y/y", "currency": "EUR", "impact": "high", "scheduledAt": 1760256000000, "forecast": "2.3%", "previous": "2.2%", "actual": null },
+  { "id": "cal_016", "name": "UK BOE Rate Decision", "currency": "GBP", "impact": "high", "scheduledAt": 1760342400000, "forecast": "4.75%", "previous": "4.75%", "actual": null },
+  { "id": "cal_017", "name": "US PPI m/m", "currency": "USD", "impact": "medium", "scheduledAt": 1760428800000, "forecast": "0.2%", "previous": "0.1%", "actual": "0.3%" },
+  { "id": "cal_018", "name": "Japan Trade Balance", "currency": "JPY", "impact": "low", "scheduledAt": 1760515200000, "forecast": "-450B", "previous": "-520B", "actual": null }
+]

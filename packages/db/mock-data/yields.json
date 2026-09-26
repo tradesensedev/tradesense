@@ -1,0 +1,10 @@
+[
+  { "id": "yld_001", "country": "US", "tenor": "2y", "value": "3.85%", "date": 1760515200000 },
+  { "id": "yld_002", "country": "US", "tenor": "10y", "value": "4.15%", "date": 1760515200000 },
+  { "id": "yld_003", "country": "EU", "tenor": "2y", "value": "2.10%", "date": 1760515200000 },
+  { "id": "yld_004", "country": "EU", "tenor": "10y", "value": "2.45%", "date": 1760515200000 },
+  { "id": "yld_005", "country": "UK", "tenor": "2y", "value": "3.95%", "date": 1760515200000 },
+  { "id": "yld_006", "country": "UK", "tenor": "10y", "value": "4.20%", "date": 1760515200000 },
+  { "id": "yld_007", "country": "JP", "tenor": "2y", "value": "0.55%", "date": 1760515200000 },
+  { "id": "yld_008", "country": "JP", "tenor": "10y", "value": "1.05%", "date": 1760515200000 }
+]

@@ -1,0 +1,7 @@
+[
+  { "id": "cb_001", "name": "Federal Reserve", "currency": "USD", "currentRate": "4.75%", "stance": "hawkish", "nextMeetingAt": 1760342400000, "aiSummary": "Fed remains cautious on inflation, signals gradual cuts if data supports it." },
+  { "id": "cb_002", "name": "European Central Bank", "currency": "EUR", "currentRate": "4.25%", "stance": "neutral", "nextMeetingAt": 1759132800000, "aiSummary": "ECB holding steady, watching growth risks in core Eurozone economies." },
+  { "id": "cb_003", "name": "Bank of England", "currency": "GBP", "currentRate": "4.75%", "stance": "dovish", "nextMeetingAt": 1760342400000, "aiSummary": "BOE leaning toward cuts as UK growth slows and inflation eases." },
+  { "id": "cb_004", "name": "Bank of Japan", "currency": "JPY", "currentRate": "0.25%", "stance": "hawkish", "nextMeetingAt": 1759392000000, "aiSummary": "BOJ continues gradual normalization path, open to further hikes." },
+  { "id": "cb_005", "name": "Reserve Bank of Australia", "currency": "AUD", "currentRate": "4.35%", "stance": "neutral", "nextMeetingAt": 1760083200000, "aiSummary": "RBA on hold, monitoring labor market strength before next move." }
+]
