@@ -1,0 +1,9 @@
+# Copy to .dev.vars (git-ignored) and fill in. Names only here, never real secrets.
+APP_NAME=TradeSense
+APP_URL=http://localhost:5173
+SESSION_SECRET=change-me-to-a-long-random-string
+IP_HASH_SALT=change-me-to-another-long-random-string
+RESEND_API_KEY=
+RESEND_FROM=TradeSense <no-reply@example.com>
+NOWPAYMENTS_API_KEY=
+NOWPAYMENTS_IPN_SECRET=

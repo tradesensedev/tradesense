@@ -1,0 +1,42 @@
+{
+  "name": "tradesense",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev:api": "wrangler dev --port 8787",
+    "dev:web": "vite",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "build": "vite build",
+    "migrate:local": "wrangler d1 migrations apply tradesense-db --local",
+    "migrate:remote": "wrangler d1 migrations apply tradesense-db --remote",
+    "seed": "tsx scripts/seed.ts && wrangler d1 execute tradesense-db --local --file=.seed/seed.sql",
+    "seed:admin": "tsx scripts/seed-admin.ts && wrangler d1 execute tradesense-db --local --file=.seed/admin.sql",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.62.7",
+    "hono": "4.6.14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-markdown": "9.0.1",
+    "react-router-dom": "6.28.0",
+    "ulidx": "2.4.1",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20250620.0",
+    "@types/node": "20.17.10",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vite": "6.0.7",
+    "wrangler": "4.20.0"
+  }
+}
