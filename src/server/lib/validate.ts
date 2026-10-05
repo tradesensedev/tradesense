@@ -14,3 +14,10 @@ export async function parseJson<S extends z.ZodTypeAny>(c: Context<any>, schema:
   if (!result.success) throw badRequest("Validation failed", result.error.flatten());
   return result.data;
 }
+
+// Query-string equivalent for GET endpoints.
+export function parseQuery<S extends z.ZodTypeAny>(c: Context<any>, schema: S): z.infer<S> {
+  const result = schema.safeParse(c.req.query());
+  if (!result.success) throw badRequest("Invalid query", result.error.flatten());
+  return result.data;
+}

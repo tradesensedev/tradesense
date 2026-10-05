@@ -17,6 +17,11 @@ export function todayDate(): string {
   return nowIso().slice(0, 10);
 }
 
+// YYYY-MM-DD plus N days (negative allowed).
+export function addDaysDate(date: string, days: number): string {
+  return addDaysIso(`${date}T00:00:00.000Z`, days).slice(0, 10);
+}
+
 // Monday of the ISO week containing the given YYYY-MM-DD date.
 export function weekStartOf(date: string): string {
   const d = new Date(`${date}T00:00:00.000Z`);

@@ -31,6 +31,18 @@ export type Outcome = (typeof OUTCOMES)[number];
 export const MARKET_CATEGORIES = ["gold", "forex", "index", "crypto", "oil", "dxy"] as const;
 export type MarketCategory = (typeof MARKET_CATEGORIES)[number];
 
+export const ATTACHMENT_OWNER_TYPES = ["post", "note", "result"] as const;
+export type AttachmentOwnerType = (typeof ATTACHMENT_OWNER_TYPES)[number];
+
+export const ATTACHMENT_KINDS = ["bias_chart", "result_chart", "note_chart", "other"] as const;
+export type AttachmentKind = (typeof ATTACHMENT_KINDS)[number];
+
+export const ATTACHMENT_ACCESS = ["inherit", "free", "paid", "public"] as const;
+export type AttachmentAccess = (typeof ATTACHMENT_ACCESS)[number];
+
+export const ALLOWED_UPLOAD_MIME = ["image/png", "image/jpeg", "image/webp", "image/gif"] as const;
+export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10 MB per file
+
 export const SESSION_COOKIE = "ts_session";
 export const CSRF_HEADER = "x-csrf-token";
 export const SESSION_TTL_DAYS = 14;
