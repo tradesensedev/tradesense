@@ -7,9 +7,16 @@ import attachmentRoutes from "./routes/attachments";
 import authRoutes from "./routes/auth";
 import catalogRoutes from "./routes/catalog";
 import fileRoutes from "./routes/files";
+import historyRoutes from "./routes/history";
+import listRoutes from "./routes/lists";
 import noteRoutes from "./routes/notes";
+import planRoutes from "./routes/plans";
 import postRoutes from "./routes/posts";
+import resultRoutes from "./routes/results";
+import ruleRoutes from "./routes/rules";
 import settingsRoutes from "./routes/settings";
+import userRoutes from "./routes/users";
+import viewRoutes from "./routes/views";
 
 export type { Bindings } from "./env";
 
@@ -32,6 +39,13 @@ app.route("/api/admin/settings", settingsRoutes);
 app.route("/api/admin/posts", postRoutes);
 app.route("/api/admin/notes", noteRoutes);
 app.route("/api/admin/attachments", attachmentRoutes);
+app.route("/api/admin/results", resultRoutes);
+app.route("/api/admin/rules", ruleRoutes);
+app.route("/api/admin/users", userRoutes);
+app.route("/api/admin/plans", planRoutes);
+app.route("/api/admin/views", viewRoutes);
+app.route("/api/admin/lists", listRoutes); // filters, sorting, bulk actions, CSV export
+app.route("/api/admin", historyRoutes); // /audit, /revisions, /media
 app.route("/api/admin", catalogRoutes);
 app.route("/files", fileRoutes);
 

@@ -1,7 +1,7 @@
 import type { AttachmentOwnerType } from "@shared/constants";
 import { nowIso } from "../../lib/time";
-import type { AttachmentRepository, AttachmentRow, NewAttachment } from "../types";
-import { buildSet, toBool } from "./util";
+import type { AttachmentFilter, AttachmentRepository, AttachmentRow, NewAttachment } from "../types";
+import { buildSet, clampPage, fromBool, toBool } from "./util";
 
 interface DbAttachment {
   id: string;
@@ -34,6 +34,8 @@ const map = (r: DbAttachment): AttachmentRow => ({
   uploadedAt: r.uploaded_at,
   locked: toBool(r.locked),
 });
+
+const like = (q: string) => `%${q.replace(/[%_]/g, " ")}%`;
 
 export class D1AttachmentRepository implements AttachmentRepository {
   constructor(private db: D1Database) {}
@@ -70,5 +72,30 @@ export class D1AttachmentRepository implements AttachmentRepository {
 
   async delete(id: string) {
     await this.db.prepare("DELETE FROM attachments WHERE id = ?").bind(id).run();
+  }
+
+  // Global list for the Media screen.
+  async list(f: AttachmentFilter) {
+    const where: string[] = [];
+    const vals: unknown[] = [];
+    if (f.ownerType) (where.push("owner_type = ?"), vals.push(f.ownerType));
+    if (f.kind) (where.push("kind = ?"), vals.push(f.kind));
+    if (f.access) (where.push("access = ?"), vals.push(f.access));
+    if (f.uploadedBy) (where.push("uploaded_by = ?"), vals.push(f.uploadedBy));
+    if (f.locked !== undefined) (where.push("locked = ?"), vals.push(fromBool(f.locked)));
+    if (f.q) {
+      where.push("(caption LIKE ? OR sha256 LIKE ?)");
+      vals.push(like(f.q), `${f.q.toLowerCase().replace(/[%_]/g, "")}%`);
+    }
+    if (f.dateFrom) (where.push("substr(uploaded_at, 1, 10) >= ?"), vals.push(f.dateFrom));
+    if (f.dateTo) (where.push("substr(uploaded_at, 1, 10) <= ?"), vals.push(f.dateTo));
+    const w = where.length ? `WHERE ${where.join(" AND ")}` : "";
+    const { limit, offset } = clampPage(f.limit, f.offset);
+    const total = await this.db.prepare(`SELECT COUNT(*) AS n FROM attachments ${w}`).bind(...vals).first<{ n: number }>();
+    const res = await this.db
+      .prepare(`SELECT * FROM attachments ${w} ORDER BY uploaded_at DESC, id DESC LIMIT ? OFFSET ?`)
+      .bind(...vals, limit, offset)
+      .all<DbAttachment>();
+    return { items: res.results.map(map), total: total?.n ?? 0 };
   }
 }

@@ -7,6 +7,7 @@ import { fmtDateTime } from "../../lib/dates";
 import { Badge, Notice, btnDanger, btnGhost, btnPrimary, inputCls } from "../ui";
 
 type Msg = { kind: "error" | "success"; text: string } | null;
+type OwnerType = "post" | "note" | "result";
 
 function Item({ a, canManage, readOnly, onChanged, setMsg }: { a: AttachmentDto; canManage: boolean; readOnly: boolean; onChanged: () => void; setMsg: (m: Msg) => void }) {
   const [caption, setCaption] = useState(a.caption);
@@ -50,14 +51,14 @@ function Item({ a, canManage, readOnly, onChanged, setMsg }: { a: AttachmentDto;
         ) : (
           <Badge>Access: {a.access}</Badge>
         )}
-        {!readOnly && <button className={btnDanger} disabled={a.locked} title={a.locked ? "Locked: the post or note is published" : "Delete"} onClick={() => void remove()}>Delete</button>}
+        {!readOnly && <button className={btnDanger} disabled={a.locked} title={a.locked ? "Locked: this screenshot is final" : "Delete"} onClick={() => void remove()}>Delete</button>}
       </div>
     </li>
   );
 }
 
 export default function AttachmentsPanel(props: {
-  ownerType: "post" | "note";
+  ownerType: OwnerType;
   ownerId: string;
   items: AttachmentDto[];
   canUpload: boolean;
@@ -98,8 +99,11 @@ export default function AttachmentsPanel(props: {
 
   return (
     <section className="space-y-3 rounded-md border border-slate-800 p-4">
-      <h2 className="font-medium">Screenshots</h2>
-      <p className="text-xs text-slate-400">PNG, JPEG, WebP or GIF, up to 10 MB each. The server records a SHA-256 fingerprint and the upload time. Screenshots lock when the post or note is published.</p>
+      <h2 className="font-medium">{props.ownerType === "result" ? "Result screenshots" : "Screenshots"}</h2>
+      <p className="text-xs text-slate-400">
+        PNG, JPEG, WebP or GIF, up to 10 MB each. The server records a SHA-256 fingerprint and the upload time.{" "}
+        {props.ownerType === "result" ? "Result screenshots are locked as soon as they are uploaded." : "Screenshots lock when the post or note is published."}
+      </p>
       {msg && <Notice kind={msg.kind}>{msg.text}</Notice>}
       {props.canUpload && !props.readOnly && (
         <div className="space-y-2">

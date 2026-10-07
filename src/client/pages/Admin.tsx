@@ -5,13 +5,19 @@ import { ADMIN_NAV } from "../components/admin/nav";
 import { PageHeader } from "../components/ui";
 import { useAuth } from "../lib/auth";
 import AnalystsPage from "./admin/AnalystsPage";
+import AuditPage from "./admin/AuditPage";
 import MarketsPage from "./admin/MarketsPage";
+import MediaPage from "./admin/MediaPage";
 import NoteEditorPage from "./admin/NoteEditorPage";
 import NotesPage from "./admin/NotesPage";
+import PlansPage from "./admin/PlansPage";
 import PostEditorPage from "./admin/PostEditorPage";
 import PostsPage from "./admin/PostsPage";
+import ResultsRoutes from "./admin/results";
+import RevisionsPage from "./admin/RevisionsPage";
 import SettingsPage from "./admin/SettingsPage";
 import TagsPage from "./admin/TagsPage";
+import UsersPage from "./admin/UsersPage";
 
 function Dashboard() {
   const { user } = useAuth();
@@ -45,9 +51,15 @@ export default function Admin() {
         <Route path="notes" element={<NotesPage />} />
         <Route path="notes/new" element={<RequirePermission permission="note:create"><NoteEditorPage /></RequirePermission>} />
         <Route path="notes/:id" element={<NoteEditorPage />} />
+        <Route path="results/*" element={<ResultsRoutes />} />
+        <Route path="revisions" element={<RequirePermission permission="post:publish"><RevisionsPage /></RequirePermission>} />
+        <Route path="media" element={<RequirePermission permission="post:publish"><MediaPage /></RequirePermission>} />
         <Route path="markets" element={<RequirePermission permission="market:manage"><MarketsPage /></RequirePermission>} />
         <Route path="analysts" element={<RequirePermission permission="analyst:manage"><AnalystsPage /></RequirePermission>} />
         <Route path="tags" element={<RequirePermission permission="tag:manage"><TagsPage /></RequirePermission>} />
+        <Route path="users" element={<RequirePermission permission="user:manage"><UsersPage /></RequirePermission>} />
+        <Route path="plans" element={<RequirePermission permission="plan:manage"><PlansPage /></RequirePermission>} />
+        <Route path="audit" element={<RequirePermission permission="audit:view"><AuditPage /></RequirePermission>} />
         <Route path="settings" element={<RequirePermission permission="settings:manage"><SettingsPage /></RequirePermission>} />
         <Route path="*" element={<p className="text-sm text-slate-400">Page not found.</p>} />
       </Route>

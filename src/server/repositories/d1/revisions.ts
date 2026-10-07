@@ -1,6 +1,7 @@
 import { newId } from "../../lib/ids";
 import { nowIso } from "../../lib/time";
-import type { NewRevision, RevisionRepository, RevisionRow } from "../types";
+import type { NewRevision, RevisionFilter, RevisionRepository, RevisionRow } from "../types";
+import { clampPage } from "./util";
 
 interface DbRevision {
   id: string;
@@ -48,5 +49,24 @@ export class D1RevisionRepository implements RevisionRepository {
       .bind(entityType, entityId)
       .first<{ n: number }>();
     return r?.n ?? 0;
+  }
+
+  // Cross-entity list for the Revisions screen.
+  async list(f: RevisionFilter) {
+    const where: string[] = [];
+    const vals: unknown[] = [];
+    if (f.entityType) (where.push("entity_type = ?"), vals.push(f.entityType));
+    if (f.entityId) (where.push("entity_id = ?"), vals.push(f.entityId));
+    if (f.editedBy) (where.push("edited_by = ?"), vals.push(f.editedBy));
+    if (f.dateFrom) (where.push("substr(edited_at, 1, 10) >= ?"), vals.push(f.dateFrom));
+    if (f.dateTo) (where.push("substr(edited_at, 1, 10) <= ?"), vals.push(f.dateTo));
+    const w = where.length ? `WHERE ${where.join(" AND ")}` : "";
+    const { limit, offset } = clampPage(f.limit, f.offset);
+    const total = await this.db.prepare(`SELECT COUNT(*) AS n FROM post_revisions ${w}`).bind(...vals).first<{ n: number }>();
+    const res = await this.db
+      .prepare(`SELECT * FROM post_revisions ${w} ORDER BY edited_at DESC, id DESC LIMIT ? OFFSET ?`)
+      .bind(...vals, limit, offset)
+      .all<DbRevision>();
+    return { items: res.results.map(map), total: total?.n ?? 0 };
   }
 }

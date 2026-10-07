@@ -25,6 +25,8 @@ export function sniffImageMime(b: Uint8Array): string | null {
   return null;
 }
 
+const DEFAULT_KIND = { post: "bias_chart", note: "note_chart", result: "result_chart" } as const;
+
 export class AttachmentService {
   constructor(
     private repos: Repositories,
@@ -57,7 +59,7 @@ export class AttachmentService {
     const settings = await new SettingsService(this.repos).getAll();
     const existing = await this.repos.attachments.listByOwner(fields.ownerType, fields.ownerId);
     const seen = new Set(existing.map((a) => a.sha256));
-    const kind = fields.kind ?? (fields.ownerType === "post" ? "bias_chart" : "note_chart");
+    const kind = fields.kind ?? DEFAULT_KIND[fields.ownerType];
     const access = fields.access ?? settings.default_access_screenshot;
     // only editors/admins may pick a per-image access level
     if (fields.access && fields.access !== settings.default_access_screenshot && !can(actor.role, "attachment:manage")) {
@@ -113,7 +115,7 @@ export class AttachmentService {
   async delete(actor: Actor, id: string) {
     const before = await this.mustFind(id);
     await this.assertOwnerWritable(actor, before.ownerType, before.ownerId);
-    if (before.locked) throw new AppError(409, "locked", "This screenshot is locked (its post or note is published) and cannot be deleted");
+    if (before.locked) throw new AppError(409, "locked", "This screenshot is locked (its post, note or result is final) and cannot be deleted");
     await this.repos.attachments.delete(id);
     await this.bucket.delete(before.r2Key);
     return before;
@@ -155,17 +157,23 @@ export class AttachmentService {
       const n = await this.repos.notes.findById(id);
       return n ? { published: n.publishStatus === "published", access: n.access, createdBy: n.createdBy, draft: n.publishStatus === "draft" } : null;
     }
-    return null; // result attachments arrive with the results queue (Phase 3)
+    // A result exists only for a published post, so it is always "published" and never a draft.
+    // Its access follows the post it evaluates.
+    const r = await this.repos.results.findById(id);
+    if (!r) return null;
+    const post = await this.repos.posts.findById(r.postId);
+    return post ? { published: true, access: post.access, createdBy: r.evaluatedBy, draft: false } : null;
   }
 
   // Same edit rights as the owning post/note. Analysts: own drafts only. Published owners: editors/admins only.
+  // Result screenshots: editors/admins only (attachment:manage).
   private async assertOwnerWritable(actor: Actor, type: AttachmentOwnerType, id: string) {
+    const owner = await this.ownerInfo(type, id);
+    if (!owner) throw notFound(type === "post" ? "Post not found" : type === "note" ? "Note not found" : "Result not found");
     if (type === "result") {
-      if (!can(actor.role, "attachment:manage")) throw forbidden();
+      if (!can(actor.role, "attachment:manage") || !can(actor.role, "result:create")) throw forbidden();
       return;
     }
-    const owner = await this.ownerInfo(type, id);
-    if (!owner) throw notFound(type === "post" ? "Post not found" : "Note not found");
     if (!can(actor.role, type === "post" ? "post:edit" : "note:edit")) throw forbidden();
     if (actor.role === "analyst" && (owner.createdBy !== actor.id || !owner.draft)) {
       throw forbidden("Analysts can only change screenshots on their own drafts");

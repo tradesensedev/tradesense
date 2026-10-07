@@ -1,7 +1,7 @@
 import type { Role } from "@shared/constants";
 import { newId } from "../../lib/ids";
 import { nowIso } from "../../lib/time";
-import type { UserRepository, UserRow } from "../types";
+import type { UserFilter, UserRepository, UserRow } from "../types";
 import { clampPage } from "./util";
 
 interface DbUser {
@@ -84,5 +84,39 @@ export class D1UserRepository implements UserRepository {
   async count() {
     const r = await this.db.prepare("SELECT COUNT(*) AS n FROM users").first<{ n: number }>();
     return r?.n ?? 0;
+  }
+
+  async search(f: UserFilter) {
+    const where: string[] = [];
+    const vals: unknown[] = [];
+    if (f.role) (where.push("role = ?"), vals.push(f.role));
+    if (f.q) {
+      const q = `%${f.q.replace(/[%_]/g, " ")}%`;
+      where.push("(email LIKE ? OR name LIKE ?)");
+      vals.push(q, q);
+    }
+    const w = where.length ? `WHERE ${where.join(" AND ")}` : "";
+    const { limit, offset } = clampPage(f.limit, f.offset);
+    const total = await this.db.prepare(`SELECT COUNT(*) AS n FROM users ${w}`).bind(...vals).first<{ n: number }>();
+    const res = await this.db
+      .prepare(`SELECT * FROM users ${w} ORDER BY created_at DESC, id DESC LIMIT ? OFFSET ?`)
+      .bind(...vals, limit, offset)
+      .all<DbUser>();
+    return { items: res.results.map(map), total: total?.n ?? 0 };
+  }
+
+  async findManyByIds(ids: string[]) {
+    const unique = [...new Set(ids)].filter(Boolean);
+    const out: UserRow[] = [];
+    // D1 allows ~100 bound parameters per statement
+    for (let i = 0; i < unique.length; i += 50) {
+      const chunk = unique.slice(i, i + 50);
+      const res = await this.db
+        .prepare(`SELECT * FROM users WHERE id IN (${chunk.map(() => "?").join(", ")})`)
+        .bind(...chunk)
+        .all<DbUser>();
+      out.push(...res.results.map(map));
+    }
+    return out;
   }
 }
