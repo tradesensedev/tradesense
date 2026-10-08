@@ -8,6 +8,7 @@ import { can } from "@shared/permissions";
 import { AppError, badRequest, forbidden, notFound } from "../lib/errors";
 import { newId, sha256Hex } from "../lib/ids";
 import type { AttachmentRow, Repositories, UserRow } from "../repositories/types";
+import { AccessService, contentEndDate } from "./access";
 import { SettingsService } from "./settings";
 import type { Actor } from "./posts";
 
@@ -122,14 +123,20 @@ export class AttachmentService {
   }
 
   // ---------- who may view a file (used by GET /files/:id) ----------
-  // Staff: always. Everyone else: only 'public' screenshots of published content.
-  // Phase 4 replaces the non-staff branch with the entitlement check (plan, free delay, open archive).
+  // Staff: always. Everyone else: the owner must be published, then the screenshot's own access (or its owner's, when
+  // "inherit") goes through AccessService: public = always, free = after free_delay_hours, paid = members or open archive.
   async canView(user: UserRow | null, att: AttachmentRow): Promise<boolean> {
     if (user && can(user.role, "admin:access")) return true;
     const owner = await this.ownerInfo(att.ownerType, att.ownerId);
     if (!owner || !owner.published) return false;
     const effective = att.access === "inherit" ? owner.access : att.access;
-    return effective === "public";
+    if (effective === "public") return true;
+    const info = await new AccessService(this.repos).check(user, {
+      access: effective,
+      publishedAt: owner.publishedAt,
+      contentDate: owner.contentDate,
+    });
+    return info.state === "open";
   }
 
   async openFile(id: string, user: UserRow | null) {
@@ -151,18 +158,45 @@ export class AttachmentService {
   private async ownerInfo(type: AttachmentOwnerType, id: string) {
     if (type === "post") {
       const p = await this.repos.posts.findById(id);
-      return p ? { published: p.status === "published", access: p.access, createdBy: p.createdBy, draft: p.status === "draft" } : null;
+      return p
+        ? {
+            published: p.status === "published",
+            access: p.access,
+            createdBy: p.createdBy,
+            draft: p.status === "draft",
+            publishedAt: p.publishedAt ?? p.updatedAt,
+            contentDate: contentEndDate(p.type, p.postDate, p.weekStartDate),
+          }
+        : null;
     }
     if (type === "note") {
       const n = await this.repos.notes.findById(id);
-      return n ? { published: n.publishStatus === "published", access: n.access, createdBy: n.createdBy, draft: n.publishStatus === "draft" } : null;
+      return n
+        ? {
+            published: n.publishStatus === "published",
+            access: n.access,
+            createdBy: n.createdBy,
+            draft: n.publishStatus === "draft",
+            publishedAt: n.publishedAt ?? n.updatedAt,
+            contentDate: n.noteDate,
+          }
+        : null;
     }
     // A result exists only for a published post, so it is always "published" and never a draft.
-    // Its access follows the post it evaluates.
+    // Its access (and dates) follow the post it evaluates.
     const r = await this.repos.results.findById(id);
     if (!r) return null;
     const post = await this.repos.posts.findById(r.postId);
-    return post ? { published: true, access: post.access, createdBy: r.evaluatedBy, draft: false } : null;
+    return post
+      ? {
+          published: true,
+          access: post.access,
+          createdBy: r.evaluatedBy,
+          draft: false,
+          publishedAt: post.publishedAt ?? post.updatedAt,
+          contentDate: contentEndDate(post.type, post.postDate, post.weekStartDate),
+        }
+      : null;
   }
 
   // Same edit rights as the owning post/note. Analysts: own drafts only. Published owners: editors/admins only.

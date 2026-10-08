@@ -6,6 +6,8 @@ import { PageHeader } from "../components/ui";
 import { useAuth } from "../lib/auth";
 import AnalystsPage from "./admin/AnalystsPage";
 import AuditPage from "./admin/AuditPage";
+import EngagementPage from "./admin/EngagementPage";
+import EventsPage from "./admin/EventsPage";
 import MarketsPage from "./admin/MarketsPage";
 import MediaPage from "./admin/MediaPage";
 import NoteEditorPage from "./admin/NoteEditorPage";
@@ -52,6 +54,8 @@ export default function Admin() {
         <Route path="notes/new" element={<RequirePermission permission="note:create"><NoteEditorPage /></RequirePermission>} />
         <Route path="notes/:id" element={<NoteEditorPage />} />
         <Route path="results/*" element={<ResultsRoutes />} />
+        <Route path="events" element={<RequirePermission permission="event:manage"><EventsPage /></RequirePermission>} />
+        <Route path="engagement" element={<RequirePermission permission="post:publish"><EngagementPage /></RequirePermission>} />
         <Route path="revisions" element={<RequirePermission permission="post:publish"><RevisionsPage /></RequirePermission>} />
         <Route path="media" element={<RequirePermission permission="post:publish"><MediaPage /></RequirePermission>} />
         <Route path="markets" element={<RequirePermission permission="market:manage"><MarketsPage /></RequirePermission>} />

@@ -6,12 +6,15 @@ import { context, csrfGuard, requirePermission, securityHeaders } from "./middle
 import attachmentRoutes from "./routes/attachments";
 import authRoutes from "./routes/auth";
 import catalogRoutes from "./routes/catalog";
+import engagementRoutes from "./routes/engagement";
+import eventRoutes from "./routes/events";
 import fileRoutes from "./routes/files";
 import historyRoutes from "./routes/history";
 import listRoutes from "./routes/lists";
 import noteRoutes from "./routes/notes";
 import planRoutes from "./routes/plans";
 import postRoutes from "./routes/posts";
+import publicRoutes from "./routes/public";
 import resultRoutes from "./routes/results";
 import ruleRoutes from "./routes/rules";
 import settingsRoutes from "./routes/settings";
@@ -35,6 +38,7 @@ app.get("/api/health", (c) =>
 );
 
 app.route("/api/auth", authRoutes);
+app.route("/api/public", publicRoutes); // no login needed; locked items come back as placeholders
 app.route("/api/admin/settings", settingsRoutes);
 app.route("/api/admin/posts", postRoutes);
 app.route("/api/admin/notes", noteRoutes);
@@ -43,6 +47,8 @@ app.route("/api/admin/results", resultRoutes);
 app.route("/api/admin/rules", ruleRoutes);
 app.route("/api/admin/users", userRoutes);
 app.route("/api/admin/plans", planRoutes);
+app.route("/api/admin/events", eventRoutes);
+app.route("/api/admin/engagement", engagementRoutes);
 app.route("/api/admin/views", viewRoutes);
 app.route("/api/admin/lists", listRoutes); // filters, sorting, bulk actions, CSV export
 app.route("/api/admin", historyRoutes); // /audit, /revisions, /media

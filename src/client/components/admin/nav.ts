@@ -14,6 +14,8 @@ export const ADMIN_NAV: NavItem[] = [
   { to: "/admin/posts", label: "Posts", permission: "admin:access" },
   { to: "/admin/notes", label: "Killzone notes", permission: "admin:access" },
   { to: "/admin/results", label: "Results", permission: "admin:access" },
+  { to: "/admin/events", label: "Events", permission: "event:manage" },
+  { to: "/admin/engagement", label: "Engagement", permission: "post:publish" },
   { to: "/admin/revisions", label: "Revisions", permission: "post:publish" },
   { to: "/admin/media", label: "Media", permission: "post:publish" },
   { to: "/admin/markets", label: "Markets", permission: "market:manage" },

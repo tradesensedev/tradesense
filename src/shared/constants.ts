@@ -47,3 +47,7 @@ export const SESSION_COOKIE = "ts_session";
 export const CSRF_HEADER = "x-csrf-token";
 export const SESSION_TTL_DAYS = 14;
 export const MAGIC_LINK_TTL_MINUTES = 15;
+
+// Things the public site logs views for (view_log.entity_type). Bookmarks cover post | note only.
+export const PUBLIC_ENTITY_TYPES = ["post", "note", "attachment"] as const;
+export type PublicEntityType = (typeof PUBLIC_ENTITY_TYPES)[number];
